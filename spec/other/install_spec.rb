@@ -11,12 +11,18 @@ end
 
 describe 'the plugin install.rb script' do
   before :each do
+    FileUtils.stubs(:copy)
     self.stubs(:system).returns(true)
     self.stubs(:puts).returns(true)
   end
 
   def do_install
     eval File.read(File.join(File.dirname(__FILE__), *%w[.. .. install.rb ]))
+  end
+  
+  it 'should copy in the unlazy-load initializer' do
+    FileUtils.expects(:copy).with(plugin_path('lib/initializer-unlazy_load.rb'), rails_path('config/initializers/unlazy_load.rb'))
+    do_install
   end
   
   it 'should have rails run the plugin installation template' do

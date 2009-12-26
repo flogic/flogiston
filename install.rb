@@ -12,6 +12,9 @@ def readme_contents
   IO.read(plugin_path('README.markdown'))
 end
 
+puts "Copying in unlazy-loading fix..."
+FileUtils.copy(plugin_path('lib/initializer-unlazy_load.rb'), rails_path('config/initializers/unlazy_load.rb'))
+
 # run our Rails template to ensure needed gems and plugins are installed
 system("rake rails:template LOCATION=#{plugin_path('templates/plugin-install.rb')}")
 
