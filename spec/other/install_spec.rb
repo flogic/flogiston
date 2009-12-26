@@ -25,6 +25,11 @@ describe 'the plugin install.rb script' do
     do_install
   end
   
+  it 'should copy in the stylesheets to the public/ directory' do
+    FileUtils.expects(:cp_r).with(plugin_path('public/stylesheets/sass'), rails_path('public/stylesheets'))
+    do_install
+  end
+  
   it 'should have rails run the plugin installation template' do
     self.expects(:system).with("rake rails:template LOCATION=#{plugin_path('templates/plugin-install.rb')}")
     do_install
