@@ -16,6 +16,10 @@ end
 puts "Installing plugin stylesheets #{plugin_path('public/stylesheets/sass')} to #{rails_path('public/stylesheets')}..."
 FileUtils.cp_r(plugin_path('public/stylesheets/sass'), rails_path('public/stylesheets'))
 
+# install our javascripts to the application
+puts "Installing plugin stylesheets #{plugin_path('public/stylesheets/sass')} to #{rails_path('public/stylesheets')}..."
+FileUtils.cp_r(plugin_path('public/javascripts'), rails_path('public'))
+
 puts "Copying in unlazy-loading fix..."
 FileUtils.copy(plugin_path('lib/initializer-unlazy_load.rb'), rails_path('config/initializers/unlazy_load.rb'))
 
