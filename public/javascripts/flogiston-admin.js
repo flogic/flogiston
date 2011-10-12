@@ -13,4 +13,9 @@ jQuery(function($) {
 
     set_label_widths();
 
+    $('#page_template_id').bind('change', function() {
+        this.form['preview'].value = true;
+        this.form.submit();
+    });
+
 });
