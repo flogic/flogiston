@@ -17,7 +17,7 @@ puts "Installing plugin stylesheets #{plugin_path('public/stylesheets/sass')} to
 FileUtils.cp_r(plugin_path('public/stylesheets/sass'), rails_path('public/stylesheets'))
 
 # install our javascripts to the application
-puts "Installing plugin stylesheets #{plugin_path('public/stylesheets/sass')} to #{rails_path('public/stylesheets')}..."
+puts "Installing plugin javascripts #{plugin_path('public/javascripts')} to #{rails_path('public')}..."
 FileUtils.cp_r(plugin_path('public/javascripts'), rails_path('public'))
 
 puts "Copying in unlazy-loading fix..."
