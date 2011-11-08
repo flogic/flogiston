@@ -1,4 +1,4 @@
-class AdminController < ApplicationController
+class Flogiston::AdminController < ApplicationController
   layout 'admin'
   helper :admin
   
